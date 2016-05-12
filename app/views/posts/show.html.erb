@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @post.title %>
+</p>
+
+<p>
+  <strong>Desc:</strong>
+  <%= @post.desc %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @post.category %>
+</p>
+
+<p>
+  <strong>Approved at:</strong>
+  <%= @post.approved_at %>
+</p>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>
