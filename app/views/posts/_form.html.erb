@@ -20,8 +20,8 @@
     <%= f.text_area :desc %>
   </div>
   <div class="field">
-    <%= f.label :category_id %><br>
-    <%= f.text_field :category_id %>
+    <%= f.label :category_id, 'category' %><br>
+    <%= f.collection_select :category_id, Category.all, :id, :title, {:prompt => 'Please select the author of this post'},  { class: 'browser-default'} %>
   </div>
   <div class="field">
     <%= f.label :approved_at %><br>

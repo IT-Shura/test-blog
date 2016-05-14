@@ -12,9 +12,16 @@
 
 <p>
   <strong>Category:</strong>
-  <%= @post.category %>
+  <%= @post.category.title %>
 </p>
-
+<p>
+  <strong>Author:</strong>
+  <%= @post.author.name %>
+</p>
+<p>
+  <strong>Viewst:</strong>
+  <%= @post.views_count %>
+</p>
 <p>
   <strong>Approved at:</strong>
   <%= @post.approved_at %>

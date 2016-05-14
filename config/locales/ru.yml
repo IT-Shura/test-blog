@@ -1,13 +1,16 @@
 ru:
-  title: "Тестовый блог"
+  title: "Тестовый бл"
   forgot_pass: 'Забыли пароль?'
   nav:
-    all_purchases: 'Все закупки'
-    groups: 'Группы'
+    posts: 'Группы'
     all_groups: 'Все группы'
-    about: 'Как это работает'
     log_in: 'Вход / Регистрация'
     log_out: 'Выход'
     profile: 'Профиль'
-    orders: 'Заказы'
-    login_oauth: 'Вход через'
+  edit: "Изменит"
+  save: 'Save'
+  back: 'Back'
+  profile:
+    change_password: 'Izm pass'
+    edit_profile: 'Edit profile'
+  
