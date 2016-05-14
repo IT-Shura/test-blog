@@ -10,12 +10,12 @@
                 data-activates="user-menu"
                 data-beloworigin="true"
                 data-hover="true">
-            <%= image_tag current_user.gravatar, class: "circle responsive-img profile-image" %>
+          
             <%= current_user.name %><i class="material-icons right">arrow_drop_down</i>
           </a>
           <ul id="user-menu" class="dropdown-content">
             <li>
-              <%= link_to user_profile_path do %>
+              <%= link_to profiles_path do %>
                 <i class="material-icons left">perm_identity</i>
                 <%= t('nav.profile') %>
               <% end %>

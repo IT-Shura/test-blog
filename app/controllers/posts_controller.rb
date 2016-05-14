@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-
+  before_filter :views_count_inc, :only=> [:show]
   # GET /posts
   # GET /posts.json
   def index
@@ -25,7 +25,7 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
-
+    @post.author = current_user
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
@@ -71,4 +71,8 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:title, :desc, :category_id, :approved_at)
     end
+    
+    def views_count_inc
+      @post.increase!('views_count')
+    end  
 end
