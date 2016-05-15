@@ -12,7 +12,7 @@ Commontator.configure do |config|
   # Returns: the current user (acts_as_commontator)
   # The default works for Devise and similar authentication plugins
   # Default: lambda { |controller| controller.current_user }
-  config.current_user_proc = lambda { |controller| controller.current_user }
+  config.current_user_proc = lambda { |controller| p controller.current_user }
 
   # javascript_proc
   # Type: Proc
@@ -109,7 +109,7 @@ Commontator.configure do |config|
   # Returns: a Boolean, true if and only if the user is a moderator for that thread
   # If you want global moderators, make this proc true for them regardless of thread
   # Default: lambda { |thread, user| false } (no moderators)
-  config.thread_moderator_proc = lambda { |thread, user| false }
+  config.thread_moderator_proc = lambda { |thread, user| user.has_role? :admin }
 
   # comment_editing
   # Type: Symbol

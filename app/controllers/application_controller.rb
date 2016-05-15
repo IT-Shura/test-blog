@@ -14,9 +14,11 @@ class ApplicationController < ActionController::Base
   end
 
   def create_guest_user
-    user = User.new { |user| user.guest = true }
-    user.email = "guest_#{Time.now.to_i}#{rand(99)}@example.com"
+    user = User.new
+    user.name  = "guest_#{Time.now.to_i}#{rand(99)}"
+    user.email = user.name + "@example.com"
     user.save(:validate => false)
+    user.add_role :guest
     user
   end
 end
