@@ -1,4 +1,5 @@
 class Post < ActiveRecord::Base
+  acts_as_commontable
   validates :title, :presence => true, uniqueness: true, length: { minimum: 8 }
   validates :desc, :presence => true
 

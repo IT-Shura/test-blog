@@ -13,4 +13,6 @@ ru:
   profile:
     change_password: 'Izm pass'
     edit_profile: 'Edit profile'
-  
+  posts:
+    created: "Новый пост успешно создан"
+

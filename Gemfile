@@ -14,6 +14,8 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'russian'
 gem 'closure_tree'
+gem 'commontator', '~> 4.11.1'
+gem 'rolify'
 
 group :development, :test do
   gem 'byebug'
