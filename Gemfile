@@ -14,6 +14,7 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'russian'
 gem 'closure_tree'
+gem 'acts_as_tree'
 
 group :development, :test do
   gem 'byebug'
