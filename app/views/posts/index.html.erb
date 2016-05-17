@@ -1,33 +1,41 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Posts</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Desc</th>
-      <th>Category</th>
-      <th>Approved at</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<h5><%= t('posts.index') %></h5>
+<div class="row">
     <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.title %></td>
-        <td><%= post.desc %></td>
-        <td><%= link_to post.category.title, post.category  %></td>
-        <td><%= post.approved_at %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    
+    
+        <div class="col s6 m6">
+          <div class="card medium">
+            <div class="card-image">
+              <img src="https://placekitten.com/g/490/460">
+              <span class="card-title"><%= post.title %></span>
+            </div>
+            <div class="card-content">
+              <%= truncate(post.content) %>
+            </div>
+            <div class="card-action">
+              <%= link_to t('posts.show'), post %>
+              <%= link_to t('posts.edit'), edit_post_path(post) %>
+              <%= link_to t('posts.destroy'), post, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <% unless post.comments.count.zero? %>
+              <span class="right-align"><%= "#{post.comments.count} #{t('posts.comments_count')}" %> </span>
+              <% end %>
+            </div>
+          </div>
+        </div>
+   
+
     <% end %>
-  </tbody>
-</table>
+   </div>
 
 <br>
 
-<%= link_to 'New Post', new_post_path %>
+<div class="row">
+  <div class="right-align">
+    <%= link_to new_post_path, class: 'btn-floating btn-large waves-effect waves-light red' do %>
+      <i class="material-icons">add</i>
+    <% end %>
+  </div>
+</div>
+
