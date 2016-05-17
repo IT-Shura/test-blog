@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.3.0'
 
 gem 'rails', '4.2.6'
 gem 'pg', '~> 0.15'
@@ -15,6 +16,8 @@ gem 'devise-i18n'
 gem 'russian'
 gem 'closure_tree'
 gem 'acts_as_tree'
+gem 'rails_12factor'
+gem 'puma'
 
 group :development, :test do
   gem 'byebug'
