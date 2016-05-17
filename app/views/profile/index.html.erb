@@ -1,25 +1,25 @@
 <div class="row">
   <div class="col s12 m6">
-    <h4><%= current_user.name %></h4>
+    <h5><%= current_user.name %></h5>
     <%= link_to user_profile_edit_path, class: "waves-effect waves-light btn" do %>
-      <%= t("edit") %>
+      <%= t("profile.edit_profile") %>
     <% end %>
   </div>
 </div>
  <div class="row">
     <div class="col s12">
       <ul class="tabs">
-        <li class="tab col s3"><a class="active" href="#tab_groups"><%= t('group.my_groups') %></a></li>
+        <li class="tab col s3"><a class="active" href="#tab_posts"><%= t('profile.my_posts') %></a></li>
         <li class="tab col s3"><a href="#tab_pass"><%= t('profile.change_password') %></a></li>
       </ul>
     </div>
-    <div id="tab_groups" class="col s12">
+    <div id="tab_posts" class="col s12">
       <table class="bordered highlight">
         <thead>
           <tr>
-            <th><%= t 'post.title' %></th>
-            <th><%= t 'post.views' %></th>
-            <th><%= t 'actions' %></th>
+            <th><%= t 'posts.title' %></th>
+            <th><%= t 'posts.views' %></th>
+            <th><%= t 'posts.actions' %></th>
           </tr>
         </thead>
 

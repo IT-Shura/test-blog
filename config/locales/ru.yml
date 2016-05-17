@@ -3,7 +3,7 @@ ru:
   forgot_pass: 'Забыли пароль?'
   nav:
     posts: 'Группы'
-    all_groups: 'Все группы'
+    categories: 'Категории'
     log_in: 'Вход / Регистрация'
     log_out: 'Выход'
     profile: 'Профиль'
@@ -11,6 +11,18 @@ ru:
   save: 'Save'
   back: 'Back'
   profile:
-    change_password: 'Izm pass'
+    change_password: 'Изменить пароль'
     edit_profile: 'Edit profile'
+    my_posts: 'Мои посты'
+    edit_profile: 'Изменить личные данные'
+    title: 'Профиль'
+  posts:
+    title: 'Название'
+    views: 'Просмотров'
+    actions: 'Действия'
+    index: 'Все посты'
+    comments_count: 'Комментов всего'
+    show: 'Показать'
+    edit: 'Изменить'
+    destroy: 'Удалить'
   
