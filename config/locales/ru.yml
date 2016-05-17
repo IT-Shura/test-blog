@@ -1,5 +1,5 @@
 ru:
-  title: "Тестовый бл"
+  title: 'Тестовый блог'
   forgot_pass: 'Забыли пароль?'
   nav:
     posts: 'Группы'
@@ -7,9 +7,9 @@ ru:
     log_in: 'Вход / Регистрация'
     log_out: 'Выход'
     profile: 'Профиль'
-  edit: "Изменит"
-  save: 'Save'
-  back: 'Back'
+  edit: 'Изменить'
+  save: 'Сохранить'
+  back: 'Назад'
   profile:
     change_password: 'Изменить пароль'
     edit_profile: 'Edit profile'
@@ -22,8 +22,12 @@ ru:
     actions: 'Действия'
     index: 'Все посты'
     comments_count: 'Комментов всего'
+    new: 'Новый пост'
     show: 'Показать'
     edit: 'Изменить'
     destroy: 'Удалить'
-    deleted: 'успешно удалено'
+    deleted: 'Пост успешно удален'
+  comments:
+    placeholder: 'Что вы об этом думаете?'
+    save: 'Оставить комментарий'
   

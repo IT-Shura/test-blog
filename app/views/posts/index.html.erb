@@ -8,7 +8,7 @@
         <div class="col s6 m6">
           <div class="card medium">
             <div class="card-image">
-              <img src="http://placekitten.com/g/490/460">
+              <img src="https://placekitten.com/g/490/460">
               <span class="card-title"><%= post.title %></span>
             </div>
             <div class="card-content">
@@ -31,4 +31,11 @@
 
 <br>
 
-<%= link_to 'New Post', new_post_path %>
+<div class="row">
+  <div class="right-align">
+    <%= link_to new_post_path, class: 'btn-floating btn-large waves-effect waves-light red' do %>
+      <i class="material-icons">add</i>
+    <% end %>
+  </div>
+</div>
+

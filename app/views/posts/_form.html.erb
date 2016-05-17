@@ -20,7 +20,10 @@
   </p>
     <%= f.label :category_id, t('category') %><br>
     <%= f.collection_select :category_id, Category.all, :id, :title, {},  { class: 'browser-default'} %>
-  <div class="input-field">
-    <%= f.submit t('save'), class: "waves-effect waves-light btn" %>
+  <div class="input-field right-align">
+    <%= f.button type: 'submit', class: "waves-effect waves-light btn" do %>
+      <%= t('save') %>
+      <i class='material-icons right'>send</i>
+    <% end %>
   </div>
 <% end %>

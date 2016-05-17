@@ -3,7 +3,7 @@
 <h4 class="center-align"><%= @post.title %></h4>
 <div class="divider"></div>
   <div class="section">
-    <div class="col s6 offset-s6">
+    <div class="col s12">
       <span class="flow-text">
           <%= @post.content %>
       </span>
@@ -11,9 +11,13 @@
   </div>
 
 
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<div class="row">
+  <div class="right-align">
+    <%= link_to edit_post_path(@post), class: 'btn-floating btn-large waves-effect waves-light red' do %>
+      <i class="material-icons">mode_edit</i>
+    <% end %>
+  </div>
+</div>
 
 </div>
 <div class="row">
@@ -35,8 +39,11 @@
       <%= f.text_area :content, class: "form-control col-lg-8", placeholder: t('comments.placeholder') %>
       <%= f.hidden_field :post_id, :value => @post.id %>
     </div>
-    <div class="actions">
-      <%= f.submit t('comments.save') %>
+    <div class="input-field right-align">
+      <%= f.button type: 'submit', class: "waves-effect waves-light btn" do %>
+        <%= t('comments.save') %>
+        <i class='material-icons right'>send</i>
+      <% end %>
     </div>
   <% end %>
 </div>
