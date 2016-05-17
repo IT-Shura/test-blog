@@ -1,31 +1,42 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  
+<h4 class="center-align"><%= @post.title %></h4>
+<div class="divider"></div>
+  <div class="section">
+    <div class="col s6 offset-s6">
+      <span class="flow-text">
+          <%= @post.content %>
+      </span>
+    </div>
+  </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
 
-<p>
-  <strong>Desc:</strong>
-  <%= @post.desc %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @post.category.title %>
-</p>
-<p>
-  <strong>Author:</strong>
-  <%= @post.author.name %>
-</p>
-<p>
-  <strong>Viewst:</strong>
-  <%= @post.views_count %>
-</p>
-<p>
-  <strong>Approved at:</strong>
-  <%= @post.approved_at %>
-</p>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
+
+</div>
+<div class="row">
+  <% @post.comments.each do |comment| %>
+      <div class="divider"></div>
+        <div class="section">
+          <div class="col s2">
+            <span ><%= comment.author.name %></span>
+          </div>
+          <div class="col s6 offset-s4">
+            <span class="flow-text"><%= comment.content %></span>
+          </div>
+        </div>
+  <% end %>
+  
+  <div class="divider"></div>
+  <%= form_for [@post, Comment.new] do |f| %>
+    <div class="field">
+      <%= f.text_area :content, class: "form-control col-lg-8", placeholder: t('comments.placeholder') %>
+      <%= f.hidden_field :post_id, :value => @post.id %>
+    </div>
+    <div class="actions">
+      <%= f.submit t('comments.save') %>
+    </div>
+  <% end %>
+</div>
