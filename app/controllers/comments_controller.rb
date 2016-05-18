@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     if comment.save
       redirect_to comment.post, notice: t('comments.created')
     else
-      render json: {errors: comment.errors}, status: :unprocessable_entity
+      redirect_to comment.post, notice: comment.errors.full_messages.each.collect { |m| m } 
     end
   end
 
