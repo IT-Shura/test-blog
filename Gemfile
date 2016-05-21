@@ -22,6 +22,7 @@ gem 'nokogiri', '~> 1.6.8.rc2'
 
 group :development, :test do
   gem 'byebug'
+  gem 'rspec-rails'
 end
 
 group :development do
