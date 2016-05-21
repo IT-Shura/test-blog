@@ -18,6 +18,7 @@ gem 'closure_tree'
 gem 'acts_as_tree'
 gem 'rails_12factor'
 gem 'puma'
+gem 'nokogiri', '~> 1.6.8.rc2'
 
 group :development, :test do
   gem 'byebug'
