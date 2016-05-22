@@ -5,7 +5,7 @@
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><%= link_to t('nav.categories'), categories_path %></li>
         <li>
-        <% if current_user %>
+        <% if current_user.has_role? :registered_user %>
           <a class="dropdown-button" href="#"
                 data-activates="user-menu"
                 data-beloworigin="true"

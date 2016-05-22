@@ -1,8 +1,9 @@
 # Manage posts
 class PostsController < ApplicationController
-  before_action :authenticate_user!, except: [:show, :index]
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-
+  load_and_authorize_resource only: [:new, :destroy, :edit, :update]
+  
   def index
     @posts = Post.all
   end

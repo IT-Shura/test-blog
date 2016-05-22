@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: [:show, :edit, :update, :destroy, :rate]
+  before_action :set_comment, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource only: [:approve, :decline, :destroy]
 
   def create
     comment        = Comment.new(comment_params)
@@ -16,6 +17,12 @@ class CommentsController < ApplicationController
 
   def approve
   end
+  
+  def decline
+  end
+  
+  def destroy
+  end  
 
   private
 

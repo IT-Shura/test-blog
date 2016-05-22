@@ -1,4 +1,5 @@
 class Post < ActiveRecord::Base
+  resourcify
   attr_accessor :approved
   validates :title, :presence => true, uniqueness: true, length: { minimum: 6 }
   validates :content, :presence => true
