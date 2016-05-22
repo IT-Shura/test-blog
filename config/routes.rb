@@ -12,5 +12,7 @@ Rails.application.routes.draw do
   post 'profile/update'
   post 'profile/update_password'
   
-  devise_for :users
+  devise_for :users,  controllers: {
+        registrations: 'registrations'
+  }
 end

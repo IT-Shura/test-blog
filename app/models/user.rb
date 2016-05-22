@@ -5,5 +5,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
          
-  has_many :posts       
+  has_many :posts
+  has_many :comments
+  
+  def move_to(user)
+    comments.update_all(user_id: user.id)
+  end
 end

@@ -21,6 +21,7 @@ gem 'puma'
 gem 'nokogiri', '~> 1.6.8.rc2'
 gem 'rolify'
 gem 'cancancan', '~> 1.10'
+gem 'simple_captcha', :git => 'git://github.com/galetahub/simple-captcha.git'
 
 group :development, :test do
   gem 'byebug'
