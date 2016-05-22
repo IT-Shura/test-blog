@@ -21,6 +21,8 @@ gem 'puma'
 gem 'nokogiri', '~> 1.6.8.rc2'
 gem 'rolify'
 gem 'cancancan', '~> 1.10'
+gem "recaptcha", require: "recaptcha/rails"
+
 
 group :development, :test do
   gem 'byebug'

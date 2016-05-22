@@ -3,12 +3,12 @@ class CommentsController < ApplicationController
   load_and_authorize_resource only: [:approve, :decline, :destroy]
 
   def create
-    comment        = Comment.new(comment_params)
-    comment.author = current_user
-    if comment.save
-      redirect_to comment.post, notice: t('comments.created')
+    @comment        = Comment.new(comment_params)
+    @comment.author = current_user
+    if verify_recaptcha(model: @comment) && @comment.save
+      redirect_to @comment.post, notice: t('comments.created')
     else
-      redirect_to comment.post, notice: comment.errors.full_messages.each.collect { |m| m } 
+      redirect_to @comment.post, notice: @comment.errors.full_messages.each.collect { |m| m } 
     end
   end
 
@@ -27,6 +27,6 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:content, :post_id)
+    params.require(:comment).permit(:content, :post_id, :captcha, :captcha_key)
   end
 end
