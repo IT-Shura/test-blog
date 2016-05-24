@@ -1,3 +1,7 @@
+<div class="card-panel  grey lighten-5">
+  <%= link_to t('search.newest'), posts_path(order: :desc), :class => "waves-effect waves-red lighten-4 btn-flat" %>
+  <a class="waves-effect waves-red lighten-4 btn-flat">Latest</a>
+</div>
 <p id="notice"><%= notice %></p>
 
 <h5><%= t('posts.index') %></h5>

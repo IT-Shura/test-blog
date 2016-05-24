@@ -13,8 +13,10 @@
 
 <div class="row">
   <div class="right-align">
-    <%= link_to edit_post_path(@post), class: 'btn-floating btn-large waves-effect waves-light red' do %>
-      <i class="material-icons">mode_edit</i>
+    <% if can? :edit, @post %>
+      <%= link_to edit_post_path(@post), class: 'btn-floating btn-large waves-effect waves-light red' do %>
+        <i class="material-icons">mode_edit</i>
+      <% end %>
     <% end %>
   </div>
 </div>
@@ -31,6 +33,25 @@
             <span class="flow-text"><%= comment.content %></span>
           </div>
         </div>
+        <div class="row">
+             <% if current_user.has_role? :administrator %>
+            <div class="col s2">
+              <% if  comment.declined? %>
+                <%= comment_approve_button(comment) %>
+              <% end %>
+            </div>  
+            <div class="col s2">
+              <% if comment.approved? %>
+                <%= comment_decline_button(comment)  %>
+              <% end %>
+            </div>
+            <div class="col s2 offset-s2 align-right">
+                <%= link_to comment, method: :delete, data: { confirm: t('comments.are_you_sure') } do %>
+                  <span class="waves-effect waves-light btn comment red"><%= t('comments.destroy')%></span>
+                <% end %>
+             </div>
+          <% end %>
+        </div>  
   <% end %>
   <div class="divider"></div>
   <%= form_for [@post, Comment.new] do |f| %>
