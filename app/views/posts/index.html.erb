@@ -1,6 +1,12 @@
-<div class="card-panel  grey lighten-5">
-  <%= link_to t('search.newest'), posts_path(order: :desc), :class => "waves-effect waves-red lighten-4 btn-flat" %>
-  <a class="waves-effect waves-red lighten-4 btn-flat">Latest</a>
+<div class="card-panel grey lighten-5">
+  <%= sort_link(@q, :created_at, t('search.by_date'), default_order: :desc) %>
+  <%= search_form_for @q do |f| %>
+  
+    <%= f.label :title_or_content_cont %>
+    <%= f.search_field :title_or_content_cont %>
+  
+    <%= f.submit %>
+  <% end %>
 </div>
 <p id="notice"><%= notice %></p>
 
@@ -16,7 +22,7 @@
               <span class="card-title"><%= post.title %></span>
             </div>
             <div class="card-content">
-              <%= truncate(post.content) %>
+              <%= highlight(excerpt(post.content, params[:q][:title_or_content_cont], radius: 50), params[:q][:title_or_content_cont]) if params[:q].present? %>
             </div>
             <div class="card-action">
               <%= link_to t('posts.show'), post %>

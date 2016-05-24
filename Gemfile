@@ -22,7 +22,7 @@ gem 'nokogiri', '~> 1.6.8.rc2'
 gem 'rolify'
 gem 'cancancan', '~> 1.10'
 gem "recaptcha", require: "recaptcha/rails"
-
+gem 'ransack'
 
 group :development, :test do
   gem 'byebug'
