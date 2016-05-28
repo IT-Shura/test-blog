@@ -1,8 +1,7 @@
-<%= form_for(@category) do |f| %>
+<%= form_for @category do |f| %>
   <% if @category.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
-
+      <h2><%= pluralize(@category.errors.count, "error") %> <%= t('forms.unable_to_save') %> </h2>
       <ul>
       <% @category.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -10,20 +9,16 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :desc %><br>
-    <%= f.text_area :desc %>
-  </div>
-  <div class="field">
-    <%= f.label :parent_id %><br>
-    <%= f.number_field :parent_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <%= f.label :title, t('categories.title') %>
+  <%= f.text_field :title, required: true, minlength: 10 %>
+  <%= f.label :content, t('categories.desc') %>
+  <%= f.text_area :desc, required: true %>
+    <%= f.label :parent_id, t('category') %><br>
+    <%= f.collection_select :parent_id, Category.all, :id, :title, {include_blank: true},  { class: 'browser-default'} %>
+  <div class="input-field right-align">
+    <%= f.button type: 'submit', class: "waves-effect waves-light btn" do %>
+      <%= t('save') %>
+      <i class='material-icons right'>send</i>
+    <% end %>
   </div>
 <% end %>
