@@ -1,5 +1,6 @@
 module PostsHelper
-    
+  include ActsAsTaggableOn::TagsHelper
+  
   def comment_approve_button(comment)
     url = approve_comment_url(comment)
     comment_action_button(url, :approve, t('comments.approve'))
@@ -15,5 +16,16 @@ module PostsHelper
       <span class="waves-effect waves-light btn comment" data-url="#{url}" data-act="#{action}">#{text}</span>     
     }.html_safe
   end      
+  
+  
+  def show_tags(post)
+    return unless post.tags.any?
+
+    out = ''
+    post.tags.each do |tag|
+      out << link_to(tag.name, posts_path(tag: tag.name), class: "chip")
+    end
+    out.html_safe
+  end
   
 end

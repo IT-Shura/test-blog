@@ -5,6 +5,11 @@
     <%= f.label :title_or_content_cont %>
     <%= f.search_field :title_or_content_cont %>
     <%= f.collection_select :category_id_eq, Category.all, :id, :title,{}, { class: "browser-default" } %>
+    <div class="row">
+      <div class="input-field col s12">
+        <%= f.collection_select :tags_id_in, ActsAsTaggableOn::Tag.all, :id, :name, {}, { multiple: true, class: "browser-default" } %>
+      </div>
+    </div>
     <br>
     <%= f.submit %>
   <% end %>
@@ -13,6 +18,7 @@
 
 <h5><%= t('posts.index') %></h5>
 <div class="row">
+  <% unless @posts.count.zero? %>
     <% @posts.each do |post| %>
     
     
@@ -40,6 +46,10 @@
         </div>
    
 
+    <% end %>
+    
+    <% else %>
+      <h4><%= t('posts.not_found') %></h4>
     <% end %>
    </div>
 

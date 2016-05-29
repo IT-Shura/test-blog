@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Categories</h1>
+<h1><%= t('categories.index') %></h1>
 
 <table>
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Desc</th>
-      <th>Parent</th>
+      <th><%= t('categories.title') %></th>
+      <th><%= t('categories.desc') %></th>
+      <th><%= t('categories.parent') %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,12 +15,19 @@
   <tbody>
     <% @categories.each do |category| %>
       <tr>
-        <td><%= category.title %></td>
+        <td><%= link_to category.title, category %></td>
         <td><%= category.desc %></td>
-        <td><%= category.parent_id %></td>
-        <td><%= link_to 'Show', category %></td>
-        <td><%= link_to 'Edit', edit_category_path(category), class: "waves-effect waves-light btn" %></td>
-        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <% if category.parent.present? %>
+            <%= link_to category.parent.title, category.parent %>
+          <% else %>
+            <%= t('categories.no_parent') %>
+          <% end %>
+          </td>
+        <% if can? :manage, category %>
+        <td><%= link_to t('edit'), edit_category_path(category), class: "waves-effect waves-light btn" %></td>
+        <td><%= link_to t('destroy'), category, method: :delete, data: { confirm: t('are_you_sure') } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

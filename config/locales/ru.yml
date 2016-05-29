@@ -8,8 +8,10 @@ ru:
     log_out: 'Выход'
     profile: 'Профиль'
   edit: 'Изменить'
+  destroy: 'Удалить'
   save: 'Сохранить'
   back: 'Назад'
+  are_you_sure: 'А вы уверены?'
   profile:
     change_password: 'Изменить пароль'
     my_posts: 'Мои посты'
@@ -29,6 +31,8 @@ ru:
     edit: 'Изменить'
     destroy: 'Удалить'
     deleted: 'Пост успешно удален'
+    tag_list: 'Теги(через запятую)'
+    not_found: 'Нет постов'
   comments:
     placeholder: 'Что вы об этом думаете?'
     save: 'Оставить комментарий'
@@ -59,5 +63,7 @@ ru:
     new: 'Новая категория'
     title: 'Заголовок'
     desc: 'Описание'
+    index: 'Список категорий'
+    no_parent: 'Нет'
 
     

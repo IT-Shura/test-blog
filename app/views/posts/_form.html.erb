@@ -14,6 +14,8 @@
   <%= f.text_field :title, required: true, minlength: 10 %>
   <%= f.label :content, t('posts.content') %>
   <%= f.text_area :content, required: true %>
+  <%= f.label :tag_list, t('posts.tag_list') %>
+  <%= f.text_field :tag_list, value: @post.tag_list.join(", ") %>
   <p>
     <%= f.check_box :approved, id: 'approved' %>
     <%= f.label :approved, t('posts.approved'), for: 'approved' %>

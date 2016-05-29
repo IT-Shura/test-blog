@@ -6,7 +6,8 @@ class PostsController < ApplicationController
   
   def index
     @q = Post.ransack(params[:q])
-    @posts = @q.result(distinct: true)
+    @posts= @q.result(distinct: true)
+    #@posts = @posts.tagged_with(params[:tag].split(/\s*,\s*/)) if params[:tag].present?
   end
 
   def show
@@ -50,6 +51,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :desc, :content, :category_id, :approved_at)
+    params.require(:post).permit(:title, :desc, :content, :category_id, :approved_at, :tag_list)
   end
 end

@@ -23,6 +23,7 @@ gem 'rolify'
 gem 'cancancan', '~> 1.10'
 gem "recaptcha", require: "recaptcha/rails"
 gem 'ransack'
+gem 'acts-as-taggable-on', '~> 3.4'
 
 group :development, :test do
   gem 'byebug'
