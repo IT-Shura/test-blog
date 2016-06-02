@@ -28,8 +28,8 @@ gem 'acts-as-taggable-on', '~> 3.4'
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'
-  gem "factory_girl_rails", "~> 4.0"
-  gem "faker"
+  gem 'factory_girl_rails', '~> 4.0'
+  gem 'faker'
   gem 'rubocop', require: false
   gem 'awesome_print'
 end
