@@ -8,7 +8,7 @@ class Ability
       can :manage, :all
     elsif user.has_role? :registered_user
       can [:edit, :update], [User], id: user.id
-      can [:edit, :update, :destroy], [Comment], owner: user
+      can [:edit, :update, :destroy], [Comment], author: user
       can :create, [Comment]
       can :read, :all
     elsif user.has_role? :visitor

@@ -30,11 +30,11 @@ FactoryGirl.define do
     password  { Faker::Internet.password(8) }
 
     trait :admin do
-      role 'admin'
+      add_role :admin
     end
 
     trait :banned do
-      role 'banned'
+      add_role :banned
     end
 
   end

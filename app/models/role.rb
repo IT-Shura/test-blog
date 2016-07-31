@@ -26,4 +26,5 @@ class Role < ActiveRecord::Base
             :allow_nil => true
 
   scopify
+  
 end

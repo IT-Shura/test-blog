@@ -36,4 +36,8 @@ class User < ActiveRecord::Base
   def move_to(user)
     comments.update_all(user_id: user.id)
   end
+  
+  def role=(role)
+    add_role role
+  end  
 end
