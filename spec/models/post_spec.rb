@@ -26,8 +26,33 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
+  
   it 'is valid factory for :post' do
     expect(create(:post)).to be_valid
   end
   
+ it 'checks empty post title' do
+    post = build(:post, title: nil)
+    post.valid?
+    expect(post.errors[:title]).to include I18n.t('errors.messages.blank')
+  end
+
+  it 'take short post title' do
+    post = build(:post,  title: 'test')
+    post.valid?
+    expect(post.errors[:title]).to include I18n.t('errors.messages.too_short.many', count: 6)
+  end
+
+  it 'take uniq post title' do
+    create(:post, title: 'uniqueness')
+    post2 = build(:post,  title: 'uniqueness')
+    post2.valid?
+    expect(post2.errors[:title]).to include I18n.t('errors.messages.taken')
+  end
+
+  it 'take max length limit for post title' do
+    post = build(:post, title: 'X' * 444)
+    post.valid?
+    expect(post.errors[:title]).to include I18n.t('errors.messages.too_long.many', count: 128)
+  end
 end

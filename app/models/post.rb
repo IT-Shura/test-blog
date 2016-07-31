@@ -27,7 +27,7 @@ class Post < ActiveRecord::Base
   resourcify
   acts_as_taggable
   attr_accessor :approved
-  validates :title, :presence => true, uniqueness: true, length: { minimum: 6 }
+  validates :title, :presence => true, uniqueness: true, length: { minimum: 6, maximum: 128 }
   validates :content, :presence => true
 
   belongs_to :author, class_name: 'User', foreign_key: :user_id

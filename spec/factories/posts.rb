@@ -25,7 +25,7 @@
 
 FactoryGirl.define do
   factory :post do
-    title  { Faker::Lorem.sentence(rand(5..10)) }
+    title  { Faker::Lorem.sentence(rand(1..5)) }
     content  { Faker::Lorem.sentence( rand(100..1000) ) }
     association :author, factory: :user
 
