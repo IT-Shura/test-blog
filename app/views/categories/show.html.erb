@@ -1,19 +1,42 @@
+<div class="row">
 <p id="notice"><%= notice %></p>
+<h4 class="center-align"><%= @category.title %></h4>
+<div class="divider"></div>
+  <div class="section">
+    <div class="col s12">
+      <span class="flow-text">
+          <%= @category.title %>
+      </span>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col s12">
+      <table class="bordered highlight">
+        <thead>
+          <tr>
+            <th><%= t 'posts.title' %></th>
+            <th><%= t 'posts.views' %></th>
+          </tr>
+        </thead>
 
-<p>
-  <strong>Title:</strong>
-  <%= @category.title %>
-</p>
+        <tbody>
+          <% @category.posts.each do |post| %>
+          <tr class="cyan lighten-5">
+            <td><%= link_to post.title, post %></td>
+            <td><%= post.views_count %></td>
+           </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    
+  </div>
+  
+</div>
 
-<p>
-  <strong>Desc:</strong>
-  <%= @category.desc %>
-</p>
 
-<p>
-  <strong>Parent:</strong>
-  <%= @category.parent_id %>
-</p>
-
+<% if can? :manage, @category %>
 <%= link_to 'Edit', edit_category_path(@category) %> |
 <%= link_to 'Back', categories_path %>
+<% end %>

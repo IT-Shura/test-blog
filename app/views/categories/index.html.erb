@@ -24,7 +24,7 @@
             <%= t('categories.no_parent') %>
           <% end %>
           </td>
-        <% if can? :manage, category %>
+        <% if can? :manage, Category %>
         <td><%= link_to t('edit'), edit_category_path(category), class: "waves-effect waves-light btn" %></td>
         <td><%= link_to t('destroy'), category, method: :delete, data: { confirm: t('are_you_sure') } %></td>
         <% end %>
