@@ -76,4 +76,24 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  
+  #Added per active admin install instructions
+  config.action_mailer.default_url_options = { :host => 'quiet-springs-81666.herokuapp.com' }
+
+  #These settings are for the sending out email for active admin and consequently the   devise mailer
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = 
+  {
+  
+    :address                => 'smtp.yandex.ru',
+    :port                   => 587,
+    :domain                 => 'yandex.ru', #you can also use google.com
+    :port                   => 465,
+    :ssl                    => true,
+    :enable_starttls_auto   => true,
+    :authentication         => :login,
+    :user_name              => ENV['SMTP_LOGIN'],
+    :password               => ENV['SMTP_PASSWORD']
+  }
 end
