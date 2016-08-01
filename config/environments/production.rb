@@ -87,7 +87,6 @@ Rails.application.configure do
   {
   
     :address                => 'smtp.yandex.ru',
-    :port                   => 587,
     :domain                 => 'yandex.ru', #you can also use google.com
     :port                   => 465,
     :ssl                    => true,
