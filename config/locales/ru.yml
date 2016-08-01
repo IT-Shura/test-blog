@@ -1,6 +1,7 @@
 ru:
   title: 'Тестовый блог'
   forgot_pass: 'Забыли пароль?'
+  your_name: 'Ваше имя'
   nav:
     posts: 'Посты'
     categories: 'Категории'
